@@ -5,6 +5,7 @@ import AuthLogo from './extensions/logo_blanco_nav.jpeg';
 import MenuLogo from './extensions/logo_blanco_nav.jpeg';
 import Favicon from './extensions/favicon.ico';
 
+
 const config = {
   // 1) Idiomas disponibles
   locales: ['es'],
@@ -31,17 +32,28 @@ const config = {
   theme: {
     light: {
       colors: {
-        primary600: '#16a34a',
-        primary700: '#15803d',
+        // Base y texto
+        neutral0: '#FFFFFF',   // fondo principal blanco
+        neutral100: '#F9FAFB', // fondos suaves (cards, inputs)
+        neutral800: '#2C3B2B', // texto en verde militar oscuro
+  
+        // Primarios
+        primary600: '#3A4D39', // verde militar principal
+        primary700: '#1E2A1D', // hover/activo
+  
+        // Acento
+        alternative600: '#D4AF37', // dorado para detalles
       },
     },
     dark: {
       colors: {
-        primary600: '#16a34a',
-        primary700: '#15803d',
+        primary600: '#3A4D39',
+        primary700: '#1E2A1D',
+        alternative600: '#D4AF37',
       },
     },
   },
+  
 };
 
 const bootstrap = (app) => {
