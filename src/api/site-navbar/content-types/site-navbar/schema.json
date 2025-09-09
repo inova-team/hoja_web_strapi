@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_navbars",
+  "info": {
+    "singularName": "site-navbar",
+    "pluralName": "site-navbars",
+    "displayName": "Site Navbar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "menuItems": {
+      "type": "component",
+      "component": "shared.menu-item",
+      "repeatable": true
+    },
+    "enableSearch": {
+      "type": "boolean"
+    },
+    "mobileSearchPlaceholder": {
+      "type": "string"
+    }
+  }
+}

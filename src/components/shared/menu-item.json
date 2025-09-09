@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_menu_items",
+  "info": {
+    "displayName": "Menu Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_self",
+      "enum": [
+        "_self",
+        "_blank"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
