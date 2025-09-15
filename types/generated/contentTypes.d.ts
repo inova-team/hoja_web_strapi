@@ -410,6 +410,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHeroCarouselHeroCarousel extends Struct.SingleTypeSchema {
+  collectionName: 'hero_carousels';
+  info: {
+    displayName: 'heroCarousel';
+    pluralName: 'hero-carousels';
+    singularName: 'hero-carousel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    intervalMs: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-carousel.hero-carousel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slides: Schema.Attribute.Component<'shared.slides', true>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSiteNavbarSiteNavbar extends Struct.SingleTypeSchema {
   collectionName: 'site_navbars';
   info: {
@@ -984,6 +1014,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::hero-carousel.hero-carousel': ApiHeroCarouselHeroCarousel;
       'api::site-navbar.site-navbar': ApiSiteNavbarSiteNavbar;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'plugin::content-releases.release': PluginContentReleasesRelease;

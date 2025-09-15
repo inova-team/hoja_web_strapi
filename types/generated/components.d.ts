@@ -14,10 +14,33 @@ export interface SharedMenuItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSlides extends Struct.ComponentSchema {
+  collectionName: 'components_shared_slides';
+  info: {
+    displayName: 'slides';
+    icon: 'file';
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean;
+    imageDesktop: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    imageMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    label: Schema.Attribute.String;
+    linkUrl: Schema.Attribute.String;
+    order: Schema.Attribute.Integer;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.menu-item': SharedMenuItem;
+      'shared.slides': SharedSlides;
     }
   }
 }
